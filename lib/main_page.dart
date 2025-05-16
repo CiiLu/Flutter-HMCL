@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hmcl/pages.dart';
 
 import './comp.dart';
 
 class _HomePage extends StatefulWidget {
+  const _HomePage({
+    super.key,
+  });
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -19,7 +24,7 @@ class _HomePageState extends State<_HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: getAppBar(context, "Hello Minecraft! Launcher 4.0.@flutter@"),
+      appBar: getAppBar(context),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -45,7 +50,7 @@ Widget getHomePage() {
 Widget getPage(int id) {
   switch (id) {
     case 0:
-      return Text("1");
+      return Home();
     case 1:
       return Text("2");
   }

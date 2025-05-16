@@ -21,10 +21,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Hello Minecraft! Launcher Flutter',
       theme: ThemeData(
-        navigationDrawerTheme: NavigationDrawerThemeData(
-
-          tileHeight: 40,
-        ),
+        navigationDrawerTheme: NavigationDrawerThemeData(tileHeight: 40),
+        navigationRailTheme: NavigationRailThemeData(),
         fontFamily: "MiSans",
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF5C6BC0)),
       ),

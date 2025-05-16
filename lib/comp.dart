@@ -143,7 +143,7 @@ class _NavDrawerState extends State<NavDrawer> {
   }
 }
 
-PreferredSize getAppBar(BuildContext context, String titleText) {
+PreferredSize getAppBar(BuildContext context) {
   return PreferredSize(
     preferredSize: Size.fromHeight(40.0),
     child: GestureDetector(
@@ -163,7 +163,7 @@ PreferredSize getAppBar(BuildContext context, String titleText) {
             ),
             SizedBox(width: 8),
             Text(
-              titleText,
+              "Hello Minecraft! Launcher 4.0.@flutter@",
               style: TextStyle(fontSize: 16.0, color: Colors.white),
             ),
           ],
