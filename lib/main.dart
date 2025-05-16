@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'page.dart';
+import 'main_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +21,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Hello Minecraft! Launcher Flutter',
       theme: ThemeData(
+        navigationDrawerTheme: NavigationDrawerThemeData(
+
+          tileHeight: 40,
+        ),
+        fontFamily: "MiSans",
         colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF5C6BC0)),
       ),
-      home: MainPage(),
+      home: getHomePage(),
     );
   }
 }
