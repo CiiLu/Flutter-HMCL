@@ -12,9 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: flutterci/setup-flutter@v1
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v4
         with:
-          flutter-version: '3.29.3'
+          channel: stable
+          version: 3.29.3
       - name: Cache Flutter dependencies
         uses: actions/cache@v3
         with:
@@ -42,9 +44,11 @@ jobs:
       - name: Install Visual Studio Build Tools
         run: |
           choco install -y visualstudio2022buildtools --package-parameters "--add-Windows10SDK --add-ATLMFC --add-VC"
-      - uses: flutterci/setup-flutter@v1
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v4
         with:
-          flutter-version: '3.29.3'
+          channel: stable
+          version: 3.29.3
       - name: Enable Windows platform
         run: flutter config --enable-windows-desktop
       - name: Cache Flutter dependencies
