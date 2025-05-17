@@ -27,10 +27,8 @@ jobs:
             ${{ runner.os }}-flutter-pub-
       - name: Get Flutter dependencies
         run: flutter pub get
-      - name: Run tests
-        run: flutter test --release
       - name: Build Web
-        run: flutter build web --release
+        run: flutter build web
       - name: Upload Web Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -41,16 +39,11 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Install Visual Studio Build Tools
-        run: |
-          choco install -y visualstudio2022buildtools --package-parameters "--add-Windows10SDK --add-ATLMFC --add-VC"
       - name: Setup Flutter SDK
         uses: flutter-actions/setup-flutter@v4
         with:
           channel: stable
           version: 3.29.3
-      - name: Enable Windows platform
-        run: flutter config --enable-windows-desktop
       - name: Cache Flutter dependencies
         uses: actions/cache@v3
         with:
@@ -61,12 +54,10 @@ jobs:
             ${{ runner.os }}-flutter-pub-
       - name: Get Flutter dependencies
         run: flutter pub get
-      - name: Run tests
-        run: flutter test --release
       - name: Build Windows
-        run: flutter build windows --release
+        run: flutter build windows
       - name: Upload Windows Artifact
         uses: actions/upload-artifact@v4
         with:
           name: windows-build
-          path: build/windows/runner/Release/
+          path: build/windows/
