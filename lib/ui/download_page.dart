@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(MaterialApp(home: DownloadPage()));
-}
+import 'minecraft_install_page.dart';
 
 class DownloadPage extends StatefulWidget {
   const DownloadPage({super.key});
@@ -147,7 +144,7 @@ class _DownloadPageState extends State<DownloadPage> {
   Widget getChild(int? currentPageId) {
     switch (currentPageId) {
       case 0:
-        return Text("Minecraft");
+        return MinecraftInstallPage();
       case 1:
         return Text("整合包");
       case 2:
@@ -171,3 +168,4 @@ class _DownloadPageState extends State<DownloadPage> {
     }
   }
 }
+
