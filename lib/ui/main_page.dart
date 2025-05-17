@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hmcl/pages.dart';
+import 'package:flutter_hmcl/ui/home_page.dart';
 
-import './comp.dart';
+import 'comp.dart';
+import 'download_page.dart';
 
 class _HomePage extends StatefulWidget {
-  const _HomePage({
-    super.key,
-  });
+  const _HomePage();
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -53,6 +52,8 @@ Widget getPage(int id) {
       return Home();
     case 1:
       return Text("2");
+    case 2:
+      return DownloadPage();
   }
   return Text("NotFound");
 }

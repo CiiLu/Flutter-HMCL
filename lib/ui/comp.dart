@@ -72,7 +72,7 @@ class _NavDrawerState extends State<NavDrawer> {
                       backgroundColor: theme.primaryColor,
                       indicatorColor: theme.indicatorColor,
                       selectedLabelTextStyle: TextStyle(
-                        color: theme.textSelectionTheme.selectionColor,
+                        color: Colors.white,
                         fontFamily: "MiSans",
                         fontSize: 14,
                       ),

@@ -24,8 +24,8 @@ flutter:
   uses-material-design: true
 
   assets:
-     - assets/hmcl.png
-     - assets/background.png
+     - assets/
+     - assets/blocks/
 
 fonts:
   - family: MiSans

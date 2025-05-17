@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'core/profile.dart';
+import '../core/profile.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -14,13 +14,17 @@ class _HomeState extends State<Home> {
     return Stack(
       children: [
         Positioned(top: 20, left: 20, child: getCard(theme)),
-        Positioned(bottom: 20, right: 20, child: getLaunchButton(theme)),
+        Positioned(
+          bottom: 20,
+          right: 20,
+          child: getLaunchButton(theme, context),
+        ),
       ],
     );
   }
 }
 
-Widget getLaunchButton(ThemeData t) {
+Widget getLaunchButton(ThemeData t, BuildContext context) {
   final theme = t.floatingActionButtonTheme;
   return FloatingActionButton.extended(
     foregroundColor: Colors.white,
@@ -35,13 +39,31 @@ Widget getLaunchButton(ThemeData t) {
     ),
     icon: Icon(Icons.play_arrow, size: 30),
     backgroundColor: t.primaryColor,
-    onPressed: () => {},
+    onPressed: () {
+      showDialog(
+        context: context,
+        builder:
+            (context) => AlertDialog(
+              title: Text("启动游戏"),
+              content: Text("按钮按下"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    // 执行确认操作
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("关闭"),
+                ),
+              ],
+            ),
+      );
+    },
   );
 }
 
 Widget getCard(ThemeData t) {
   return Card(
-    color: t.cardColor,
+    color: t.cardColor.withValues(alpha: 0.8),
     elevation: 4,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     child: Container(

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 
-import 'main_page.dart';
+import 'ui/main_page.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   windowManager.ensureInitialized();
-  windowManager.setSize(Size(800, 500));
+  windowManager.setSize(Size(850, 500));
   windowManager.setTitleBarStyle(TitleBarStyle.hidden);
 
   runApp(const MyApp());
