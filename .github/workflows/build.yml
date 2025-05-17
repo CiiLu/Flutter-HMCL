@@ -34,6 +34,10 @@ jobs:
         with:
           name: web-build
           path: build/web/
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/web/
 
   build-windows:
     runs-on: windows-latest
