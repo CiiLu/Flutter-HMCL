@@ -56,7 +56,7 @@ class _NavDrawerState extends State<NavDrawer> {
         case 3:
           return "设置";
         default:
-          return "";
+          return "111";
       }
     }
 
@@ -68,8 +68,14 @@ class _NavDrawerState extends State<NavDrawer> {
             child:
                 isCollapsed
                     ? NavigationRail(
+                      labelType: NavigationRailLabelType.selected,
                       backgroundColor: theme.primaryColor,
                       indicatorColor: theme.indicatorColor,
+                      selectedLabelTextStyle: TextStyle(
+                        color: theme.textSelectionTheme.selectionColor,
+                        fontFamily: "MiSans",
+                        fontSize: 14,
+                      ),
                       selectedIndex: widget.id,
                       onDestinationSelected: widget.onItemTapped,
                       destinations: List<NavigationRailDestination>.generate(
@@ -80,10 +86,6 @@ class _NavDrawerState extends State<NavDrawer> {
                             icon: Icon(iconData, color: getColor(index)),
                             label: Text(
                               getItemLabel(index),
-                              style: TextStyle(
-                                color: getColor(index),
-                                fontSize: 14,
-                              ),
                             ),
                           );
                         },
