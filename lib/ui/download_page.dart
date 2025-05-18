@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'minecraft_install_page.dart';
 
 class DownloadPage extends StatefulWidget {
@@ -9,53 +10,83 @@ class DownloadPage extends StatefulWidget {
 }
 
 class _DownloadPageState extends State<DownloadPage> {
-  int? _currentPageId;
+  Widget? _currentPage;
 
-  void _navigate(int id) {
+  void _navigate(Widget? widget) {
     setState(() {
-      _currentPageId = id;
+      _currentPage = widget;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    if (_currentPageId == null) {
+    if (_currentPage == null) {
       return Stack(
         children: [
           Positioned(
             top: 20,
             left: 20,
-            child: getCard(0, Theme.of(context), context, () => _navigate(0)),
+            child: getCard(
+              0,
+              Theme.of(context),
+              context,
+              () => _navigate(getChild(0)),
+            ),
           ),
           Positioned(
             top: 20,
             left: 20 + 160,
-            child: getCard(1, Theme.of(context), context, () => _navigate(1)),
+            child: getCard(
+              1,
+              Theme.of(context),
+              context,
+              () => _navigate(getChild(1)),
+            ),
           ),
           Positioned(
             top: 190,
-            left: 20 ,
-            child: getCard(2, Theme.of(context), context, () => _navigate(2)),
+            left: 20,
+            child: getCard(
+              2,
+              Theme.of(context),
+              context,
+              () => _navigate(getChild(2)),
+            ),
           ),
           Positioned(
             top: 190,
             left: 20 + 160,
-            child: getCard(3, Theme.of(context), context, () => _navigate(3)),
+            child: getCard(
+              3,
+              Theme.of(context),
+              context,
+              () => _navigate(getChild(3)),
+            ),
           ),
           Positioned(
             top: 190,
             left: 20 + 160 * 2,
-            child: getCard(4, Theme.of(context), context, () => _navigate(4)),
+            child: getCard(
+              4,
+              Theme.of(context),
+              context,
+              () => _navigate(getChild(4)),
+            ),
           ),
           Positioned(
             top: 190,
             left: 20 + 160 * 3,
-            child: getCard(5, Theme.of(context), context, () => _navigate(5)),
+            child: getCard(
+              5,
+              Theme.of(context),
+              context,
+              () => _navigate(getChild(5)),
+            ),
           ),
         ],
       );
     } else {
-      return getChild(_currentPageId);
+      return _currentPage!;
     }
   }
 
@@ -144,7 +175,9 @@ class _DownloadPageState extends State<DownloadPage> {
   Widget getChild(int? currentPageId) {
     switch (currentPageId) {
       case 0:
-        return MinecraftInstallPage();
+        return MinecraftInstallPage(
+          onBack: () => _navigate(null), // 返回主页面
+        );
       case 1:
         return Text("整合包");
       case 2:
@@ -168,4 +201,3 @@ class _DownloadPageState extends State<DownloadPage> {
     }
   }
 }
-
